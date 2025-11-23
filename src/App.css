@@ -1,11 +1,11 @@
 .app-container {
   @apply min-h-screen relative;
-  background-image: url('./assets/plane.JPG');
+  background-image: var(--bg-light);
   @apply bg-cover bg-center bg-fixed;
 }
 
 .dark .app-container {
-  background-image: url('./assets/hangar.JPG');
+  background-image: var(--bg-dark);
 }
 
 .app-container::before {

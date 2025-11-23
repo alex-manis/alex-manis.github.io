@@ -1,0 +1,24 @@
+.header {
+  @apply fixed top-0 left-0 w-full backdrop-blur-md bg-white/70 dark:bg-black/40 shadow-sm z-50;
+}
+
+.header-container {
+  @apply max-w-5xl mx-auto flex items-center justify-between p-4;
+}
+
+.header-title {
+  @apply font-bold text-xl tracking-wide;
+}
+
+.header-nav {
+  @apply hidden md:flex gap-6 text-sm font-medium;
+}
+
+.header-nav-link {
+  @apply hover:opacity-60 transition;
+}
+
+.theme-toggle-button {
+  @apply p-2 rounded-full border dark:border-gray-700 hover:scale-110 transition;
+}
+

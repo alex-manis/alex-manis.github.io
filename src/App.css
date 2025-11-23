@@ -1,0 +1,15 @@
+.app-container {
+  @apply min-h-screen relative;
+  background-image: url('./assets/plane.JPG');
+  @apply bg-cover bg-center bg-fixed;
+}
+
+.dark .app-container {
+  background-image: url('./assets/hangar.JPG');
+}
+
+.app-container::before {
+  @apply absolute inset-0 bg-white/60 dark:bg-black/70 backdrop-blur-sm z-0;
+  content: '';
+}
+

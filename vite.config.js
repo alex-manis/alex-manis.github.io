@@ -9,8 +9,8 @@ const REPO_NAME = ''
 export default defineConfig({
   plugins: [react()],
   base: process.env.NODE_ENV === 'production' 
-    ? (REPO_NAME ? `/${REPO_NAME}/` : '/')
-    : '/',
+    ? (REPO_NAME ? `/${REPO_NAME}/` : './')
+    : './',
   server: {
     open: true,
     port: 5173,

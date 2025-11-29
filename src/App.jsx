@@ -5,8 +5,8 @@ import Projects from "./components/Projects/Projects";
 import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
 import Background from "./components/Background/Background";
-import lightTheme from "./assets/light.JPG";
-import darkTheme from "./assets/dark.JPG";
+import lightTheme from "./assets/light.jpg";
+import darkTheme from "./assets/dark.jpg";
 import "./App.css";
 
 function App() {

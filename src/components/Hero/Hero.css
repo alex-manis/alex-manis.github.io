@@ -1,16 +1,61 @@
 .hero {
-  @apply max-w-5xl mx-auto pt-40 pb-32 px-6 text-center relative z-10;
+  @apply min-h-screen flex flex-col items-center justify-center px-4 py-20 text-center;
+  gap: 2rem;
 }
 
 .hero-title {
-  @apply text-4xl md:text-6xl font-extrabold tracking-tight;
+  @apply text-4xl md:text-6xl font-bold text-gray-900 dark:text-white;
+  line-height: 1.2;
 }
 
 .hero-title-accent {
-  @apply text-blue-600 dark:text-red-500;
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(to right, #2563eb, #2563eb);
+}
+
+.dark .hero-title-accent {
+  background-image: linear-gradient(to right, #ef4444, #ef4444);
 }
 
 .hero-description {
-  @apply mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto;
+  @apply text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl;
+  line-height: 1.6;
 }
 
+.hero-buttons {
+  @apply flex gap-4 flex-wrap justify-center mt-4;
+}
+
+.btn {
+  @apply px-8 py-3 rounded-lg font-semibold transition-all duration-300;
+  cursor: pointer;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:scale-105;
+}
+
+.btn-secondary {
+  @apply border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white dark:hover:bg-gray-800 hover:scale-105;
+}
+
+.hero-scroll-hint {
+  @apply flex flex-col items-center gap-2 mt-12 text-gray-600 dark:text-gray-400;
+  animation: fadeInUp 1s ease-out 1.5s both;
+}
+
+.scroll-arrow {
+  @apply text-2xl;
+  display: inline-block;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

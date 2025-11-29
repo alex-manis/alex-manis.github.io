@@ -10,6 +10,14 @@
 
 .app-container::before {
   @apply absolute inset-0 bg-white/60 dark:bg-black/70 backdrop-blur-sm z-0;
-  content: '';
+  content: "";
+  pointer-events: none;
 }
 
+.hero,
+.projects,
+.contacts,
+.footer {
+  position: relative;
+  z-index: 1;
+}

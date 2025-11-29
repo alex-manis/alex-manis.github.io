@@ -1,20 +1,23 @@
 .contacts {
-  @apply max-w-4xl mx-auto px-6 pb-32 text-center relative z-10;
+  @apply max-w-5xl mx-auto px-6 py-16 relative z-10;
 }
 
 .contacts-title {
-  @apply text-3xl font-bold mb-6;
+  @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-4;
 }
 
 .contacts-subtitle {
-  @apply text-gray-600 dark:text-gray-300 mb-6;
+  @apply text-center text-lg text-gray-600 dark:text-gray-400 mb-12;
 }
 
 .contacts-list {
-  @apply flex flex-col items-center gap-3 text-lg;
+  @apply flex flex-wrap justify-center items-center gap-4 md:gap-6;
 }
 
 .contact-link {
-  @apply hover:text-blue-600 dark:text-red-500 transition;
+  @apply flex items-center gap-2 py-2 px-5 rounded-full font-semibold transition-colors;
+  @apply bg-white/60 dark:bg-black/50 backdrop-blur-sm;
+  @apply text-gray-800 dark:text-gray-200;
+  @apply hover:bg-white/80 dark:hover:bg-black/70;
+  @apply shadow-md;
 }
-

@@ -29,8 +29,8 @@ const projects = [
     title: "JSON config tool",
     description:
       "A web-based GUI for managing JSON configuration files. This tool simplifies the process of creating, editing, and deleting configurations, which are stored as JSON files. It provides a user-friendly interface to prevent manual errors when editing complex JSON data.",
-    liveUrl: "https://alex-manis.github.io/ddive_config_tool/",
-    githubUrl: "https://github.com/alex-manis/ddive_config_tool",
+    liveUrl: "https://alex-manis.github.io/config_tool_frontend",
+    githubUrl: "https://github.com/alex-manis/config_tool_frontend",
     image: configToolImg, 
   },
   {

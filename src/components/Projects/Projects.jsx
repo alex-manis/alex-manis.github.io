@@ -57,7 +57,7 @@ export default function Projects() {
           >
             <div className="project-image-wrapper">
               <img
-                src={`../../src/assets/projects/${project.image}`}
+                src={`../../src/assets/${project.image}`}
                 alt={project.title}
                 className="project-image"
               />

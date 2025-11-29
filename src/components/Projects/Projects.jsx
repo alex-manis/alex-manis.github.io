@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import "./Projects.css";
+import newsExplorerImg from "../../assets/news_explorer.JPG";
+import w2wrImg from "../../assets/w2wr.JPG";
+import configToolImg from "../../assets/config_tool.JPG";
+import aroundTheUsImg from "../../assets/around_the_us.JPG";
 
 const projects = [
   {
@@ -9,7 +13,7 @@ const projects = [
       "The News Explorer is a web-based app that allows users to search for news articles, save their favorites, and manage their account. The app features user authentication, interactive UI, and responsive design.",
     liveUrl: "https://alex-manis.github.io/news_frontend/",
     githubUrl: "https://github.com/alex-manis/news_frontend",
-    image: "news_explorer.jpg",
+    image: newsExplorerImg, 
   },
   {
     id: 2,
@@ -18,7 +22,7 @@ const projects = [
       "The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.",
     liveUrl: "https://what2wear.undo.it/",
     githubUrl: "https://github.com/alex-manis/se_project_react",
-    image: "w2wr.jpg",
+    image: w2wrImg, 
   },
   {
     id: 3,
@@ -27,7 +31,7 @@ const projects = [
       "A web-based GUI for managing JSON configuration files. This tool simplifies the process of creating, editing, and deleting configurations, which are stored as JSON files. It provides a user-friendly interface to prevent manual errors when editing complex JSON data.",
     liveUrl: "https://alex-manis.github.io/ddive_config_tool/",
     githubUrl: "https://github.com/alex-manis/ddive_config_tool",
-    image: "config_tool.jpg",
+    image: configToolImg, 
   },
   {
     id: 4,
@@ -36,7 +40,7 @@ const projects = [
       "The App is storage for travellers who wants to save and show their most beautiful photos of fantastical locations. The app is developed on vanilla JS.",
     liveUrl: "https://alex-manis.github.io/se_project_aroundtheus",
     githubUrl: "https://github.com/alex-manis/se_project_aroundtheus",
-    image: "around_the_us.jpg",
+    image: aroundTheUsImg, 
   },
 ];
 
@@ -57,7 +61,7 @@ export default function Projects() {
           >
             <div className="project-image-wrapper">
               <img
-                src={`../../src/assets/${project.image}`}
+                src={project.image} 
                 alt={project.title}
                 className="project-image"
               />

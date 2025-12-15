@@ -9,8 +9,16 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleNavClick = (sectionId) => {
+    const headerElement = document.querySelector(".header");
+    const headerHeight = headerElement ? headerElement.offsetHeight : 0;
     const section = document.getElementById(sectionId);
-    section?.scrollIntoView({ behavior: "smooth" });
+
+    if (section) {
+      const sectionTop =
+        section.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({ top: sectionTop, behavior: "smooth" });
+    }
+
     setIsMenuOpen(false);
   };
 
@@ -41,25 +49,29 @@ export default function Header() {
     <>
       <header className="header">
         <div className="header-container">
-          <h1 className="header-title">ALEX.MANIS</h1>
+          <div className="header-left">
+            <h1 className="header-title">ALEX.MANIS</h1>
+          </div>
 
           <nav className="header-nav">{navLinks}</nav>
 
-          <div className="header-actions">
-            <button
-              onClick={toggleTheme}
-              className="theme-toggle-button"
-              aria-label="Toggle theme"
-            >
-              {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="mobile-menu-button"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          <div className="header-right">
+            <div className="header-actions">
+              <button
+                onClick={toggleTheme}
+                className="theme-toggle-button"
+                aria-label="Toggle theme"
+              >
+                {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
+              </button>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="mobile-menu-button"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </header>

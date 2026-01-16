@@ -4,6 +4,10 @@ import newsExplorerImg from "../../assets/news_explorer.JPG";
 import w2wrImg from "../../assets/w2wr.JPG";
 import configToolImg from "../../assets/config_tool.JPG";
 import aroundTheUsImg from "../../assets/around_the_us.JPG";
+import promptBoxImg from "../../assets/prompt_box.JPG";
+import coffeeShopImg from "../../assets/coffee_shop.JPG";
+import incidentTrackerImg from "../../assets/incident_tracker.JPG";
+import img2pdfImg from "../../assets/img2pdf.JPG";
 
 const projects = [
   {
@@ -41,6 +45,42 @@ const projects = [
     liveUrl: "https://alex-manis.github.io/se_project_aroundtheus",
     githubUrl: "https://github.com/alex-manis/se_project_aroundtheus",
     image: aroundTheUsImg, 
+  },
+  {
+    id: 5,
+    title: "Prompt Box - AI Prompt Manager",
+    description:
+      "A lightweight AI prompt library for organizing, editing, and testing reusable prompts. Features dynamic template variables, live preview, and a clean, developer-friendly UI.",
+    liveUrl: "https://alex-manis.github.io/prompt_box",
+    githubUrl: "https://github.com/alex-manis/prompt-box",
+    image: promptBoxImg, 
+  },
+  {
+    id: 6,
+    title: "Triple Peaks Coffee Shop",
+    description:
+      "The App is simple solution for the Coffee Shop. The app is developed on HTML and CSS.",
+    liveUrl: "https://alex-manis.github.io/se_project_coffeeshop/",
+    githubUrl: "https://github.com/alex-manis/se_project_coffeeshop",
+    image: coffeeShopImg, 
+  },
+  {
+    id: 7,
+    title: "Incident Tracker",
+    description:
+      "Production-style full-stack application for managing and monitoring operational incidents. Built with TypeScript, React, Node.js, and PostgreSQL, featuring secure authentication, role-based access, incident lifecycle management, audit logs, and a metrics dashboard. Designed as a realistic internal tool with a focus on clean architecture, scalability, and maintainability.",
+    liveUrl: "https://tracker.alexmanis.org",
+    githubUrl: "hhttps://github.com/alex-manis/incident_tracker_frontend",
+    image: incidentTrackerImg, 
+  },
+  {
+    id: 8,
+    title: "img2pdf",
+    description:
+      "Web application for converting images (JPG/PNG) to PDF file. The app is developed on React.",
+    liveUrl: "https://alex-manis.github.io/img2pdf",
+    githubUrl: "https://github.com/alex-manis/img2pdf",
+    image: img2pdfImg, 
   },
 ];
 

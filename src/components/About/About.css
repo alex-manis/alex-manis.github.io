@@ -3,10 +3,6 @@
   padding-top: 5rem;
 }
 
-.about__title {
-  @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-12;
-}
-
 .about__container {
   @apply flex flex-col md:flex-row gap-8 items-center;
 }

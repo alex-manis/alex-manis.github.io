@@ -1,6 +1,6 @@
 .modal {
   @apply fixed inset-0 flex items-center justify-center p-4;
-  z-index: 100;
+  z-index: 9999;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
 }
@@ -40,35 +40,35 @@
   @apply mb-6;
 }
 
-.modal__section-title {
+.modal__subtitle {
   @apply text-lg font-semibold mb-3 
          text-blue-600 dark:text-red-500;
 }
 
-.modal__section-text {
+.modal__text {
   @apply text-gray-700 dark:text-gray-300 leading-relaxed;
 }
 
-.modal__features-list {
+.modal__list {
   @apply space-y-2;
   list-style: none;
   padding: 0;
 }
 
-.modal__feature-item {
+.modal__list-item {
   @apply text-gray-700 dark:text-gray-300 pl-5 relative;
 }
 
-.modal__feature-item::before {
+.modal__list-item::before {
   content: "✓";
   @apply absolute left-0 text-blue-600 dark:text-red-500 font-bold;
 }
 
-.modal__technologies {
+.modal__tags {
   @apply flex flex-wrap gap-2;
 }
 
-.modal__tech-tag {
+.modal__tag {
   @apply px-3 py-1 bg-blue-100 dark:bg-gray-800 
          text-blue-800 dark:text-blue-300 
          rounded-full text-sm font-medium;

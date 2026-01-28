@@ -15,6 +15,12 @@
     min-width: 320px;
   }
 
+  /* Modal scroll lock */
+  body.modal-open,
+  html.modal-open {
+    overflow: hidden !important;
+  }
+
   * {
     @apply box-border;
   }

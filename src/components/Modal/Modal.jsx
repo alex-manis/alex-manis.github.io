@@ -1,3 +1,5 @@
+import { createPortal } from "react-dom";
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { MODAL_TRANSITION_DURATION } from "../../constants";
@@ -6,6 +8,21 @@ import "./Modal.css";
 const TRANSITION_DURATION_SECONDS = MODAL_TRANSITION_DURATION / 1000;
 
 export default function Modal({ isOpen, onClose, project }) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("modal-open");
+      document.documentElement.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+      document.documentElement.classList.remove("modal-open");
+    }
+
+    return () => {
+      document.body.classList.remove("modal-open");
+      document.documentElement.classList.remove("modal-open");
+    };
+  }, [isOpen]);
+
   if (!project) return null;
 
   const handleOverlayClick = (e) => {
@@ -14,7 +31,7 @@ export default function Modal({ isOpen, onClose, project }) {
     }
   };
 
-  return (
+  const modalContent = (
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -53,17 +70,17 @@ export default function Modal({ isOpen, onClose, project }) {
 
               {project.about && (
                 <div className="modal__section">
-                  <h4 className="modal__section-title">About</h4>
-                  <p className="modal__section-text">{project.about}</p>
+                  <h4 className="modal__subtitle">About</h4>
+                  <p className="modal__text">{project.about}</p>
                 </div>
               )}
 
               {project.features && project.features.length > 0 && (
                 <div className="modal__section">
-                  <h4 className="modal__section-title">Key Features</h4>
-                  <ul className="modal__features-list">
+                  <h4 className="modal__subtitle">Key Features</h4>
+                  <ul className="modal__list">
                     {project.features.map((feature, index) => (
-                      <li key={index} className="modal__feature-item">
+                      <li key={index} className="modal__list-item">
                         {feature}
                       </li>
                     ))}
@@ -73,10 +90,10 @@ export default function Modal({ isOpen, onClose, project }) {
 
               {project.technologies && project.technologies.length > 0 && (
                 <div className="modal__section">
-                  <h4 className="modal__section-title">Technologies</h4>
-                  <div className="modal__technologies">
+                  <h4 className="modal__subtitle">Technologies</h4>
+                  <div className="modal__tags">
                     {project.technologies.map((tech, index) => (
-                      <span key={index} className="modal__tech-tag">
+                      <span key={index} className="modal__tag">
                         {tech}
                       </span>
                     ))}
@@ -112,4 +129,6 @@ export default function Modal({ isOpen, onClose, project }) {
       )}
     </AnimatePresence>
   );
+
+  return createPortal(modalContent, document.body);
 }

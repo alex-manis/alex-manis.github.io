@@ -2,47 +2,53 @@
   @apply fixed top-0 left-0 right-0 z-20 bg-white/50 dark:bg-black/50 backdrop-blur-sm;
 }
 
-.header-container {
+.header__container {
   @apply max-w-5xl mx-auto px-6 py-4 flex justify-between items-center;
 }
 
-.header-title {
-  @apply text-xl font-bold text-gray-900 dark:text-white;
+.header__left {
+  @apply flex items-center;
 }
 
-.header-nav-link {
-  @apply text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors text-base;
+.header__title {
+  @apply text-xl font-bold text-gray-900 dark:text-white 
+         cursor-pointer transition-colors duration-300 
+         hover:text-blue-600 dark:hover:text-red-500;
 }
 
-.header-nav {
+.header__nav {
   @apply hidden md:flex gap-6 items-center;
 }
 
-.header-actions {
+.header__nav-link {
+  @apply text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white 
+         transition-colors text-base bg-transparent border-none p-0 cursor-pointer;
+}
+
+.header__right {
+  @apply flex items-center;
+}
+
+.header__actions {
   @apply flex items-center gap-4;
 }
 
-.theme-toggle-button {
+.header__theme-toggle {
   @apply text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors;
 }
 
-.mobile-menu-button {
+.header__mobile-menu-button {
   @apply md:hidden text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors z-30;
 }
 
-.mobile-menu {
+.header__mobile-menu {
   @apply fixed inset-0 z-10 bg-white/90 dark:bg-black/90 backdrop-blur-md flex flex-col items-center justify-center;
 }
 
-.mobile-menu-nav {
+.header__mobile-menu-nav {
   @apply flex flex-col items-center gap-8;
 }
 
-.mobile-menu-nav .header-nav-link {
+.header__mobile-menu-nav .header__nav-link {
   @apply text-2xl;
-}
-
-/* Override for buttons inside nav */
-.header-nav-link {
-  @apply bg-transparent border-none p-0 cursor-pointer;
 }

@@ -1,72 +1,63 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useTheme } from "../../contexts/ThemeContext";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useScrollToSection } from "../../hooks";
+import { NAV_LINKS, PERSONAL_INFO } from "../../constants";
 import "./Header.css";
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = useRef(null);
 
-  const handleNavClick = (sectionId) => {
-    const headerElement = document.querySelector(".header");
-    const headerHeight = headerElement ? headerElement.offsetHeight : 0;
-    const section = document.getElementById(sectionId);
+  const { scrollToSection, scrollToTop } = useScrollToSection({
+    withHeaderOffset: true,
+    onScrollComplete: () => setIsMenuOpen(false),
+  });
 
-    if (section) {
-      const sectionTop =
-        section.getBoundingClientRect().top + window.scrollY - headerHeight;
-      window.scrollTo({ top: sectionTop, behavior: "smooth" });
-    }
-
-    setIsMenuOpen(false);
+  const handleLogoClick = () => {
+    scrollToTop();
   };
 
   const navLinks = (
     <>
-      <button
-        onClick={() => handleNavClick("about")}
-        className="header-nav-link"
-      >
-        About
-      </button>
-      <button
-        onClick={() => handleNavClick("projects")}
-        className="header-nav-link"
-      >
-        Projects
-      </button>
-      <button
-        onClick={() => handleNavClick("contacts")}
-        className="header-nav-link"
-      >
-        Contacts
-      </button>
+      {NAV_LINKS.map((link) => (
+        <button
+          key={link.id}
+          onClick={() => scrollToSection(link.id)}
+          className="header__nav-link"
+        >
+          {link.label}
+        </button>
+      ))}
     </>
   );
 
   return (
     <>
-      <header className="header">
-        <div className="header-container">
-          <div className="header-left">
-            <h1 className="header-title">ALEX.MANIS</h1>
+      <header className="header" ref={headerRef}>
+        <div className="header__container">
+          <div className="header__left">
+            <h1 className="header__title" onClick={handleLogoClick}>
+              {PERSONAL_INFO.fullName.toUpperCase().replace(" ", ".")}
+            </h1>
           </div>
 
-          <nav className="header-nav">{navLinks}</nav>
+          <nav className="header__nav">{navLinks}</nav>
 
-          <div className="header-right">
-            <div className="header-actions">
+          <div className="header__right">
+            <div className="header__actions">
               <button
                 onClick={toggleTheme}
-                className="theme-toggle-button"
+                className="header__theme-toggle"
                 aria-label="Toggle theme"
               >
                 {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
               </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="mobile-menu-button"
+                className="header__mobile-menu-button"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -82,9 +73,9 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="mobile-menu"
+            className="header__mobile-menu"
           >
-            <nav className="mobile-menu-nav">{navLinks}</nav>
+            <nav className="header__mobile-menu-nav">{navLinks}</nav>
           </motion.div>
         )}
       </AnimatePresence>

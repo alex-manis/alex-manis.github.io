@@ -1,7 +1,6 @@
+import { PERSONAL_INFO } from "../../constants";
 import "./Footer.css";
 
 export default function Footer() {
-  return (
-    <footer className="footer">© 2026 Alex Manis — Full-Stack Developer</footer>
-  );
+  return <footer className="footer">{PERSONAL_INFO.copyright}</footer>;
 }

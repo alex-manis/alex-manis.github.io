@@ -1,50 +1,60 @@
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
+import { useScrollToSection } from "../../hooks";
+import { PERSONAL_INFO } from "../../constants";
 import "./Hero.css";
 
 export default function Hero() {
-  const handleScrollToProjects = () => {
-    const projectsSection = document.getElementById("projects");
-    projectsSection?.scrollIntoView({ behavior: "smooth" });
-  };
+  const { scrollToSection } = useScrollToSection();
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("alex.manis@outlook.com");
-    alert("Email copied to clipboard!");
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(PERSONAL_INFO.email);
+      toast.success("Email copied to clipboard!", {
+        duration: 3000,
+        position: "bottom-center",
+      });
+    } catch (error) {
+      toast.error("Failed to copy email", {
+        duration: 3000,
+        position: "bottom-center",
+      });
+    }
   };
 
   return (
-    <section id="about" className="hero">
+    <section id="hero" className="hero">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="hero-title"
+        className="hero__title"
       >
-        Hi, I'm <span className="hero-title-accent">Alex Manis</span>
+        Hi, I'm <span className="hero__title-accent">{PERSONAL_INFO.name}</span>
       </motion.h2>
 
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="hero-description"
+        className="hero__description"
       >
-        Frontend Developer with a Full Stack knowledge and with hands-on
-        experience in Javascript, React.js, Node.js, Express.js, MongoDB, CSS,
-        HTML. I'm a team player with experience in cross-functional teams and
-        international environments.
+        {PERSONAL_INFO.tagline} {PERSONAL_INFO.description}
       </motion.p>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.6 }}
-        className="hero-buttons"
+        className="hero__buttons"
       >
-        <button className="btn btn-primary" onClick={handleScrollToProjects}>
+        <button
+          className="hero__btn hero__btn--primary"
+          onClick={() => scrollToSection("projects")}
+        >
           View My Work
         </button>
-        <button className="btn btn-secondary" onClick={handleCopyEmail}>
+        <button className="hero__btn hero__btn--secondary" onClick={handleCopyEmail}>
           Get in Touch
         </button>
       </motion.div>
@@ -53,13 +63,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="hero-scroll-hint"
+        className="hero__scroll-hint"
+        onClick={() => scrollToSection("about")}
       >
         <span>Scroll to explore</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="scroll-arrow"
+          className="hero__scroll-arrow"
         >
           ↓
         </motion.div>

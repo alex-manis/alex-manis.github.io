@@ -1,23 +1,24 @@
 import { Mail, Linkedin, Github } from "lucide-react";
+import { SOCIAL_LINKS } from "../../constants";
 import "./Contacts.css";
 
-const contacts = [
+const CONTACTS = [
   {
     icon: <Mail size={16} />,
     label: "Email",
-    href: "mailto:alex.manis@outlook.com",
+    href: `mailto:${SOCIAL_LINKS.email}`,
     text: "My E-mail",
   },
   {
     icon: <Linkedin size={16} />,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/alex-manis/",
+    href: SOCIAL_LINKS.linkedin,
     text: "My LinkedIn",
   },
   {
     icon: <Github size={16} />,
     label: "GitHub",
-    href: "https://github.com/alex-manis",
+    href: SOCIAL_LINKS.github,
     text: "My GitHub",
   },
 ];
@@ -25,26 +26,17 @@ const contacts = [
 export default function Contacts() {
   return (
     <section id="contacts" className="contacts">
-      <h3 className="contacts-title">Contacts</h3>
-      <p className="contacts-subtitle">Let's work together!</p>
+      <h3 className="contacts__title">Contacts</h3>
+      <p className="contacts__subtitle">Let's work together!</p>
 
-      <div className="contacts-list">
-        {contacts.map((contact, index) => (
+      <div className="contacts__list">
+        {CONTACTS.map((contact, index) => (
           <a
             key={index}
             href={contact.href}
-            className="contact-link"
-            target={
-              contact.href.startsWith("http") ||
-              contact.href.startsWith("mailto")
-                ? "_blank"
-                : undefined
-            }
-            rel={
-              contact.href.startsWith("http")
-                ? "noopener noreferrer"
-                : undefined
-            }
+            className="contacts__link"
+            target={contact.href.startsWith("http") ? "_blank" : undefined}
+            rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
           >
             {contact.icon} {contact.text}
           </a>

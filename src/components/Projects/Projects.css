@@ -1,45 +1,48 @@
-.projects {
-  @apply max-w-5xl mx-auto px-6 pb-16 relative z-10;
-}
-
-.projects-title {
-  @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-12;
-}
-
-.projects-grid {
+.projects__grid {
   @apply grid md:grid-cols-2 gap-8;
 }
 
-.project-card {
+.projects__card {
   @apply bg-white/60 dark:bg-black/50 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 backdrop-blur-sm;
   display: flex;
   flex-direction: column;
 }
 
-.project-image-wrapper {
-  @apply w-full h-48 overflow-hidden;
+.projects__image-wrapper {
+  @apply w-full h-48 overflow-hidden cursor-pointer relative;
 }
 
-.project-image {
+.projects__image-wrapper::after {
+  content: "View Details";
+  @apply absolute inset-0 flex items-center justify-center 
+         bg-black/60 text-white font-semibold text-lg
+         opacity-0 transition-opacity duration-300;
+}
+
+.projects__image-wrapper:hover::after {
+  @apply opacity-100;
+}
+
+.projects__image {
   @apply w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110;
 }
 
-.project-content {
+.projects__content {
   @apply p-6 flex flex-col flex-grow;
 }
 
-.project-title {
+.projects__title-card {
   @apply text-xl font-bold text-gray-900 dark:text-white mb-2;
 }
 
-.project-description {
+.projects__description {
   @apply text-gray-700 dark:text-gray-300 mb-4 text-sm flex-grow;
 }
 
-.project-links {
+.projects__links {
   @apply flex gap-4 mt-auto;
 }
 
-.project-link {
+.projects__link {
   @apply font-semibold text-blue-600 dark:text-red-500 hover:underline;
 }

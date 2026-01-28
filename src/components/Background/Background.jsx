@@ -1,12 +1,11 @@
-import './Background.css'
+import "./Background.css";
 
 export default function Background() {
   return (
     <div className="background">
-      <div className="background-glow-1"></div>
-      <div className="background-glow-2"></div>
-      <div className="background-glow-3"></div>
+      <div className="background__glow background__glow--primary"></div>
+      <div className="background__glow background__glow--secondary"></div>
+      <div className="background__glow background__glow--tertiary"></div>
     </div>
-  )
+  );
 }
-

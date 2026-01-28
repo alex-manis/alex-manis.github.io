@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global section styles to remove duplication */
+@layer components {
+  .section {
+    @apply max-w-5xl mx-auto px-6 pb-16 relative z-10;
+    padding-top: 5rem;
+  }
+
+  .section__title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-12;
+  }
+
+  .section__card {
+    @apply bg-white/60 dark:bg-black/50 backdrop-blur-sm rounded-lg shadow-lg 
+           border border-gray-200 dark:border-gray-700 transition-all duration-300 
+           hover:shadow-xl hover:scale-105;
+  }
+}

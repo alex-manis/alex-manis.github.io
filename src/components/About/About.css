@@ -7,7 +7,7 @@
 }
 
 .about__image {
-  @apply w-64 h-64 rounded-full shadow-2xl object-cover 
+  @apply w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full shadow-2xl object-cover 
          border-4 border-blue-600 dark:border-red-500
          transition-transform duration-300 hover:scale-105;
 }
@@ -21,8 +21,16 @@
 }
 
 .about__description {
-  @apply text-gray-700 dark:text-gray-300 text-base leading-relaxed;
-  text-align: justify;
+  @apply text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed;
+  text-align: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .about__description {
+    text-align: justify;
+  }
 }
 
 .about__stats {

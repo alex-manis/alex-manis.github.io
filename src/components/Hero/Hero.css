@@ -4,8 +4,9 @@
 }
 
 .hero__title {
-  @apply text-4xl md:text-6xl font-bold text-gray-900 dark:text-white;
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white px-4;
   line-height: 1.2;
+  word-break: break-word;
 }
 
 .hero__title-accent {
@@ -18,9 +19,17 @@
 }
 
 .hero__description {
-  @apply text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl;
+  @apply text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl px-4;
   line-height: 1.6;
-  text-align: justify;
+  text-align: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .hero__description {
+    text-align: justify;
+  }
 }
 
 .hero__buttons {
@@ -28,8 +37,10 @@
 }
 
 .hero__btn {
-  @apply px-8 py-3 rounded-lg font-semibold transition-all duration-300;
+  @apply px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base;
   cursor: pointer;
+  min-width: fit-content;
+  white-space: nowrap;
 }
 
 .hero__btn--primary {

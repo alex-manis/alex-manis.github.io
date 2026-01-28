@@ -1,7 +1,14 @@
 .app-container {
-  @apply min-h-screen relative;
+  @apply min-h-screen relative overflow-x-hidden;
   background-image: var(--bg-light);
-  @apply bg-cover bg-center bg-fixed;
+  @apply bg-cover bg-center;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    background-attachment: scroll;
+  }
 }
 
 .dark .app-container {

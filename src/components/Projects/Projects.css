@@ -1,5 +1,5 @@
 .projects__grid {
-  @apply grid md:grid-cols-2 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
 }
 
 .projects__card {
@@ -37,6 +37,8 @@
 
 .projects__description {
   @apply text-gray-700 dark:text-gray-300 mb-4 text-sm flex-grow;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .projects__links {

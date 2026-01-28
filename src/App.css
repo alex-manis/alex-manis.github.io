@@ -24,7 +24,8 @@
 .hero,
 .projects,
 .contacts,
-.footer {
+.footer,
+.certificates {
   position: relative;
   z-index: 1;
 }

@@ -1,5 +1,14 @@
+.projects {
+  @apply max-w-5xl mx-auto px-6 pb-16 relative z-10;
+  padding-top: 5rem;
+}
+
+.projects__title {
+  @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-12;
+}
+
 .projects__grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
+  @apply grid md:grid-cols-2 gap-8;
 }
 
 .projects__card {
